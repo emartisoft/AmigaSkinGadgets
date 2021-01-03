@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/pics">
+        <file>pics/hover.png</file>
+        <file>pics/normal.png</file>
+        <file>pics/press.png</file>
+        <file>pics/bAot.png</file>
+        <file>pics/bAot_down.png</file>
+        <file>pics/bMax.png</file>
+        <file>pics/bMax_down.png</file>
+        <file>pics/bMin.png</file>
+        <file>pics/bMin_down.png</file>
+        <file>pics/bottom.png</file>
+        <file>pics/bottom_left.png</file>
+        <file>pics/bottom_right.png</file>
+        <file>pics/left.png</file>
+        <file>pics/right.png</file>
+        <file>pics/top.png</file>
+        <file>pics/top_left.png</file>
+        <file>pics/top_left_down.png</file>
+        <file>pics/checked.png</file>
+        <file>pics/unchecked.png</file>
+        <file>pics/line.png</file>
+        <file>pics/slider_groove.png</file>
+        <file>pics/slider_handle.png</file>
+        <file>pics/comboarrow.png</file>
+        <file>pics/comboarrow_down.png</file>
+        <file>pics/karo.png</file>
+        <file>pics/scrollup.png</file>
+        <file>pics/scrolldown.png</file>
+        <file>pics/scrolldown_down.png</file>
+        <file>pics/scrollup_down.png</file>
+        <file>pics/boingball.png</file>
+    </qresource>
+</RCC>

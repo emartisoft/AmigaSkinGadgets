@@ -1,0 +1,9 @@
+#ifndef AMIGACOLORS_H
+#define AMIGACOLORS_H
+
+#define WHITE QColor(0xff, 0xff, 0xff)
+#define BLACK QColor(0x00, 0x00, 0x00)
+#define BLUE  QColor(0x50, 0x78, 0xa0)
+#define GRAY  QColor(0x99, 0x99, 0x99)
+
+#endif // AMIGACOLORS_H
