@@ -7,6 +7,7 @@ AmigaButton::AmigaButton(QWidget *parent,
                        int x, int y,
                          const QString& text) : QPushButton(parent)
 {
+    setMouseTracking(true);
     currentStatus = NORMAL;
     imageName[NORMAL] = normalImage;
     imageName[HOVER] = hoverImage;
@@ -24,6 +25,16 @@ AmigaButton::AmigaButton(QWidget *parent,
 void AmigaButton::setTextColor(QColor c)
 {
     setStyleSheet(QString("color: rgb(%1, %2, %3);").arg(c.red(),3,10).arg(c.green(),3,10).arg(c.blue(),3,10));
+}
+
+void AmigaButton::setPressImage(QString pressImage)
+{
+    imageName[PRESS] = pressImage;
+}
+
+QPoint AmigaButton::getCurrentMousePoint()
+{
+    return curMousePoint;
 }
 
 void AmigaButton::enterEvent(QEnterEvent *)
@@ -55,6 +66,12 @@ void AmigaButton::mouseReleaseEvent(QMouseEvent *event)
         update();
     }
     if(rect().contains(event->pos())) emit clicked();
+}
+
+void AmigaButton::mouseMoveEvent(QMouseEvent *event)
+{
+    curMousePoint.setX(event->pos().x());
+    curMousePoint.setY(event->pos().y());
 }
 
 void AmigaButton::paintEvent(QPaintEvent *)

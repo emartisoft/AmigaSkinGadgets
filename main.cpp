@@ -10,6 +10,8 @@
 #include "amigaframe.h"
 #include "amigatextedit.h"
 #include "amigalistwidget.h"
+#include "amigaprogressbar.h"
+#include "amigaspinbox.h"
 
 #include <QApplication>
 #include <QColor>
@@ -17,7 +19,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    AmigaWindow w;
+    AmigaWindow w;//(nullptr, false, false, false);
 
     // font
     QFont font;
@@ -109,8 +111,18 @@ int main(int argc, char *argv[])
     new QListWidgetItem("Yedi", &aListWidget);
     new QListWidgetItem("Sekiz", &aListWidget);
 
+    // progressbar
+    //AmigaProgressBar aProgBar(&w, 200, 20, 280, 420);
+    AmigaProgressBar aProgBar(&w, 200, 20, 280, 420, 0, 50, true);
+    aProgBar.setFont(font);
+    aProgBar.setValue(25);
 
-    w.setWindowTitle("Amiga Window Title - çöişüğÇÖİŞÜĞ");
+    // spinbox
+    AmigaSpinBox aSpinBox(&w, 120,25,500,420);
+    aSpinBox.setFont(font);
+
+
+    w.setWindowTitle("Amiga Window Title - çöışüğÇÖİŞÜĞ");
     w.resize(720, 480);
     w.setMinimumSize(720,480);
     w.show();

@@ -30,5 +30,9 @@
         <file>pics/scrolldown_down.png</file>
         <file>pics/scrollup_down.png</file>
         <file>pics/boingball.png</file>
+        <file>pics/top_left_edge.png</file>
+        <file>pics/spinbox_down_down.png</file>
+        <file>pics/spinbox_normal.png</file>
+        <file>pics/spinbox_up_down.png</file>
     </qresource>
 </RCC>

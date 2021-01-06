@@ -17,6 +17,8 @@ SOURCES += \
     amigalabel.cpp \
     amigalineedit.cpp \
     amigalistwidget.cpp \
+    amigaprogressbar.cpp \
+    amigaspinbox.cpp \
     amigastandartbutton.cpp \
     amigatextedit.cpp \
     main.cpp \
@@ -34,6 +36,8 @@ HEADERS += \
     amigalabel.h \
     amigalineedit.h \
     amigalistwidget.h \
+    amigaprogressbar.h \
+    amigaspinbox.h \
     amigastandartbutton.h \
     amigatextedit.h \
     amigabutton.h \

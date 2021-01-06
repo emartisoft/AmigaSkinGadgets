@@ -11,7 +11,7 @@ class AmigaTitleBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AmigaTitleBar(QWidget *parent = nullptr);
+    explicit AmigaTitleBar(QWidget *parent = nullptr, bool closeButton=true, bool minimizeButton=true, bool maximizeButton=true);
     ~AmigaTitleBar();
 
 protected:

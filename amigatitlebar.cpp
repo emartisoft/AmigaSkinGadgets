@@ -1,6 +1,6 @@
 #include "amigatitlebar.h"
 
-AmigaTitleBar::AmigaTitleBar(QWidget *parent) : QWidget(parent)
+AmigaTitleBar::AmigaTitleBar(QWidget *parent, bool closeButton, bool minimizeButton, bool maximizeButton) : QWidget(parent)
 {
     QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     sizePolicy.setHorizontalStretch(0);
@@ -14,16 +14,19 @@ AmigaTitleBar::AmigaTitleBar(QWidget *parent) : QWidget(parent)
     horizontalLayout->setSpacing(0);
     horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
     horizontalLayout->setContentsMargins(0, 0, 0, 0);
-    bClose = new AmigaButton(this, ":/pics/pics/top_left.png", ":/pics/pics/top_left.png", ":/pics/pics/top_left_down.png");
+    bClose = new AmigaButton(this, (closeButton) ? ":/pics/pics/top_left.png" : ":/pics/pics/top_left_edge.png",
+                             (closeButton) ? ":/pics/pics/top_left.png" : ":/pics/pics/top_left_edge.png",
+                             (closeButton) ? ":/pics/pics/top_left_down.png" : ":/pics/pics/top_left_edge.png");
     bClose->setObjectName(QString::fromUtf8("bClose"));
     QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
     sizePolicy1.setHorizontalStretch(0);
     sizePolicy1.setVerticalStretch(0);
     sizePolicy1.setHeightForWidth(bClose->sizePolicy().hasHeightForWidth());
     bClose->setSizePolicy(sizePolicy1);
-    bClose->setMinimumSize(QSize(25, 15));
-    bClose->setMaximumSize(QSize(25, 15));
-    bClose->setBaseSize(QSize(25, 15));
+    int bCloseWidth = (closeButton) ? 25 : 4;
+    bClose->setMinimumSize(QSize(bCloseWidth, 15));
+    bClose->setMaximumSize(QSize(bCloseWidth, 15));
+    bClose->setBaseSize(QSize(bCloseWidth, 15));
 
     horizontalLayout->addWidget(bClose);
 
@@ -45,6 +48,7 @@ AmigaTitleBar::AmigaTitleBar(QWidget *parent) : QWidget(parent)
     bMin->setMinimumSize(QSize(25, 15));
     bMin->setMaximumSize(QSize(25, 15));
     bMin->setBaseSize(QSize(25, 15));
+    bMin->setVisible(minimizeButton);
 
     horizontalLayout->addWidget(bMin);
 
@@ -54,6 +58,7 @@ AmigaTitleBar::AmigaTitleBar(QWidget *parent) : QWidget(parent)
     bMax->setSizePolicy(sizePolicy1);
     bMax->setMinimumSize(QSize(23, 15));
     bMax->setMaximumSize(QSize(23, 15));
+    bMax->setVisible(maximizeButton);
 
     horizontalLayout->addWidget(bMax);
 
@@ -70,8 +75,11 @@ AmigaTitleBar::AmigaTitleBar(QWidget *parent) : QWidget(parent)
                this      , SLOT  (Minimized()));
     connect(bMax, SIGNAL(clicked  ()),
                this,       SLOT  (Maximized()));
-    connect(bClose   , SIGNAL(clicked  ()),
+    if(closeButton)
+    {
+        connect(bClose   , SIGNAL(clicked  ()),
                this      , SLOT  (Quit()));
+    }
     connect(bAot   , SIGNAL(clicked  ()),
                this      , SLOT  (AlwaysTopOn()));
 

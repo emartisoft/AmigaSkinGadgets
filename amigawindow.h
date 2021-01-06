@@ -9,7 +9,10 @@ class AmigaWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit AmigaWindow(QMainWindow *parent = nullptr);
+    explicit AmigaWindow(QMainWindow *parent = nullptr,
+                         bool closeButton=true,
+                         bool minimizeButton=true,
+                         bool maximizeButton=true);
     void setWindowTitle(const QString &title);
 
 signals:

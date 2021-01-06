@@ -1,8 +1,8 @@
 #include "amigawindow.h"
 
-AmigaWindow::AmigaWindow(QMainWindow *parent) : QMainWindow(parent),
+AmigaWindow::AmigaWindow(QMainWindow *parent, bool closeButton, bool minimizeButton, bool maximizeButton) : QMainWindow(parent),
     m_SizeGrip(this),
-    m_TitleBar(this)
+    m_TitleBar(this, closeButton, minimizeButton, maximizeButton)
 {
     connect(this       , SIGNAL(WindowTitleChanged()),
         &m_TitleBar, SLOT  (UpdateWindowTitle ()));

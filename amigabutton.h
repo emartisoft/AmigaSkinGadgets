@@ -19,12 +19,15 @@ public:
                         const QString& text=""
                         );
     void setTextColor(QColor c);
+    void setPressImage(QString pressImage);
+    QPoint getCurrentMousePoint();
 
 protected:
     virtual void enterEvent(QEnterEvent*);
     virtual void leaveEvent(QEvent*);
     virtual void mousePressEvent(QMouseEvent* event);
     virtual void mouseReleaseEvent(QMouseEvent* event);
+    virtual void mouseMoveEvent(QMouseEvent* event);
     virtual void paintEvent(QPaintEvent*);
 
 private:
@@ -39,6 +42,7 @@ private:
     int w, h;
     int x, y;
     bool noText;
+    QPoint curMousePoint;
 
 };
 
