@@ -18,6 +18,11 @@ public:
                         int x,
                         int y);
     void setFont(QFont &font);
+    void setValue(int value);
+    int value();
+    void setMinimum(int min);
+    void setMaximum(int max);
+
 private slots:
     void spinButtonPressed();
 private:

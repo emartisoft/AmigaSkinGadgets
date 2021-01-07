@@ -53,6 +53,26 @@ void AmigaSpinBox::setFont(QFont &font)
     spinBox->setFont(font);
 }
 
+void AmigaSpinBox::setValue(int value)
+{
+    spinBox->setValue(value);
+}
+
+int AmigaSpinBox::value()
+{
+    return spinBox->value();
+}
+
+void AmigaSpinBox::setMinimum(int min)
+{
+    spinBox->setMinimum(min);
+}
+
+void AmigaSpinBox::setMaximum(int max)
+{
+    spinBox->setMaximum(max);
+}
+
 void AmigaSpinBox::spinButtonPressed()
 {
     spinBox->setValue(spinBox->value()+(isPointInTriangle() ? -1 : 1));

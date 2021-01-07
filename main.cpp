@@ -12,6 +12,7 @@
 #include "amigalistwidget.h"
 #include "amigaprogressbar.h"
 #include "amigaspinbox.h"
+#include "amigatabwidget.h"
 
 #include <QApplication>
 #include <QColor>
@@ -118,11 +119,22 @@ int main(int argc, char *argv[])
     // spinbox
     AmigaSpinBox aSpinBox(&w, 120,25,500,420);
     aSpinBox.setFont(font);
+    aSpinBox.setMaximum(50);
+    aSpinBox.setValue(16);
+
+    // tabwidget
+    AmigaTabWidget aTabWidget(&w, 500, 75, 120, 450);
+    aTabWidget.setFont(font);
+    aTabWidget.addTab(new QWidget(), " Settings   ");
+    aTabWidget.addTab(new QWidget(), " Options   ");
+    aTabWidget.addTab(new QWidget(), " Help   ");
+    aTabWidget.setCurrentIndex(1);
+
 
 
     w.setWindowTitle("Amiga Window Title - çöışüğÇÖİŞÜĞ");
-    w.resize(720, 480);
-    w.setMinimumSize(720,480);
+    w.resize(800, 600);
+    w.setMinimumSize(800,600);
     w.show();
 
     return a.exec();
