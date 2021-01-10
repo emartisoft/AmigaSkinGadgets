@@ -20,6 +20,8 @@ public:
                         );
     void setTextColor(QColor c);
     void setPressImage(QString pressImage);
+    void setNormalImage(QString normalImage);
+    void setHoverImage(QString hoverImage);
     QPoint getCurrentMousePoint();
 
 protected:

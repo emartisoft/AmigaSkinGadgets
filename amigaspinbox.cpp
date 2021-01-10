@@ -22,7 +22,7 @@ AmigaSpinBox::AmigaSpinBox(QWidget *parent, int w, int h, int x, int y):
 
     horizontalLayout->addWidget(spinBox);
 
-    upDown = new AmigaButton(this, ":/pics/pics/spinbox_normal.png", ":/pics/pics/spinbox_normal.png",  ":/pics/pics/spinbox_normal.png");
+    upDown = new AmigaButton(this, ":/pics/spinbox_normal.png", ":/pics/spinbox_normal.png",  ":/pics/spinbox_normal.png");
     QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     sizePolicy.setHorizontalStretch(0);
     sizePolicy.setVerticalStretch(0);
@@ -80,7 +80,7 @@ void AmigaSpinBox::spinButtonPressed()
 
 void AmigaSpinBox::setPressImage()
 {
-    upDown->setPressImage(isPointInTriangle() ? ":/pics/pics/spinbox_down_down.png":":/pics/pics/spinbox_up_down.png");
+    upDown->setPressImage(isPointInTriangle() ? ":/pics/spinbox_down_down.png":":/pics/spinbox_up_down.png");
 }
 
 bool AmigaSpinBox::isPointInTriangle()
@@ -102,9 +102,4 @@ void AmigaSpinBox::paintEvent(QPaintEvent *)
     painter.drawLine(spinBox->width()+7, 0, spinBox->width()+7, height()-2);
     painter.setPen(GRAY);
     painter.drawPoint(spinBox->width()+4,2);
-
-
-
-
-
 }

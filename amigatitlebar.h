@@ -13,6 +13,7 @@ class AmigaTitleBar : public QWidget
 public:
     explicit AmigaTitleBar(QWidget *parent = nullptr, bool closeButton=true, bool minimizeButton=true, bool maximizeButton=true);
     ~AmigaTitleBar();
+    void setActive(bool active);
 
 protected:
     void mouseMoveEvent(QMouseEvent* event);
@@ -26,6 +27,7 @@ public slots:
     void Minimized();
     void Maximized();
     void AlwaysTopOn();
+    void AlwaysToBottom();
     void Quit();
 
 private:
@@ -36,7 +38,7 @@ private:
     AmigaButton *bMax;
     AmigaButton *bClose;
     AmigaButton *bAot;
-    bool mAlwaysTopOn;
+    bool mAlwaysTopOn, mCloseButton;
 
 };
 

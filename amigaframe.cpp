@@ -13,7 +13,7 @@ void AmigaFrame::paintEvent(QPaintEvent *)
     QPainter painter(this);
     if(m_caroTile)
     {
-        painter.drawTiledPixmap(QRect(0,0,width(),height()), QPixmap(":/pics/pics/karo.png"));
+        painter.drawTiledPixmap(QRect(0,0,width(),height()), QPixmap(":/pics/karo.png"));
     }
     else
     {

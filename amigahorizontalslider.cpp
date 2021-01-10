@@ -10,12 +10,12 @@ AmigaHorizontalSlider::AmigaHorizontalSlider(QWidget *parent, int x, int y, int 
     setOrientation(Qt::Horizontal);
     setStyleSheet(QString::fromUtf8(
     "QSlider::groove:horizontal {\n"
-    "	background-image: url(:/pics/pics/slider_groove.png);	\n"
+    "	background-image: url(:/pics/slider_groove.png);	\n"
     "	left: 8;\n"
     "	right:8;\n"
     "}\n"
     "QSlider::handle:horizontal {\n"
-    "	image: url(:/pics/pics/slider_handle.png);\n"
+    "	image: url(:/pics/slider_handle.png);\n"
     "	top:-2;\n"
     "	left:-7;\n"
     "}"));

@@ -52,7 +52,7 @@ void AmigaComboBox::paintEvent(QPaintEvent *)
     painter.drawLine(0,0,0,height()-1);
     painter.drawLine(1,0,1,height()-2);
     painter.setPen(BLACK);
-    QPixmap arrow((pressed)? ":/pics/pics/comboarrow_down.png" : ":/pics/pics/comboarrow.png");
+    QPixmap arrow((pressed)? ":/pics/comboarrow_down.png" : ":/pics/comboarrow.png");
     arrowWidth = arrow.width();
     painter.drawPixmap(QPoint(2,(height()-2-arrow.height())/2), arrow);
     const QRect rectangle = QRect(arrowWidth+4, 0, width()-arrowWidth-4, height());

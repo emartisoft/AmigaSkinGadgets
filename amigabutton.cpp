@@ -32,6 +32,16 @@ void AmigaButton::setPressImage(QString pressImage)
     imageName[PRESS] = pressImage;
 }
 
+void AmigaButton::setNormalImage(QString normalImage)
+{
+    imageName[NORMAL] = normalImage;
+}
+
+void AmigaButton::setHoverImage(QString hoverImage)
+{
+    imageName[HOVER] = hoverImage;
+}
+
 QPoint AmigaButton::getCurrentMousePoint()
 {
     return curMousePoint;

@@ -1,8 +1,5 @@
 <RCC>
-    <qresource prefix="/pics">
-        <file>pics/hover.png</file>
-        <file>pics/normal.png</file>
-        <file>pics/press.png</file>
+    <qresource prefix="/">
         <file>pics/bAot.png</file>
         <file>pics/bAot_down.png</file>
         <file>pics/bMax.png</file>
@@ -12,8 +9,6 @@
         <file>pics/bottom.png</file>
         <file>pics/bottom_left.png</file>
         <file>pics/bottom_right.png</file>
-        <file>pics/left.png</file>
-        <file>pics/right.png</file>
         <file>pics/top.png</file>
         <file>pics/top_left.png</file>
         <file>pics/top_left_down.png</file>
@@ -34,5 +29,26 @@
         <file>pics/spinbox_down_down.png</file>
         <file>pics/spinbox_normal.png</file>
         <file>pics/spinbox_up_down.png</file>
+        <file>font/AmigaTopazTurkish.ttf</file>
+        <file>pics/bAot_deactive.png</file>
+        <file>pics/bMax_deactive.png</file>
+        <file>pics/bMin_deactive.png</file>
+        <file>pics/bottom_deactive.png</file>
+        <file>pics/bottom_left_deactive.png</file>
+        <file>pics/bottom_right_deactive.png</file>
+        <file>pics/top_deactive.png</file>
+        <file>pics/top_left_deactive.png</file>
+        <file>pics/top_left_edge_deactive.png</file>
+        <file>pics/edge.png</file>
+        <file>pics/edge_deactive.png</file>
+        <file>pics/edge_right.png</file>
+        <file>pics/edge_right_deactive.png</file>
+        <file>pics/bottom_left_thin.png</file>
+        <file>pics/bottom_left_thin_deactive.png</file>
+        <file>pics/bottom_thin.png</file>
+        <file>pics/left_edge.png</file>
+        <file>pics/left_edge_deactive.png</file>
+        <file>pics/bottom_right_thin.png</file>
+        <file>pics/bottom_right_thin_deactive.png</file>
     </qresource>
 </RCC>

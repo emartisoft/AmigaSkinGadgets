@@ -1,3 +1,4 @@
+#include "amigaapplication.h"
 #include "amigawindow.h"
 #include "amigabutton.h"
 #include "amigalabel.h"
@@ -14,25 +15,19 @@
 #include "amigaspinbox.h"
 #include "amigatabwidget.h"
 
-#include <QApplication>
 #include <QColor>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    AmigaApplication a(argc, argv);
     AmigaWindow w;//(nullptr, false, false, false);
-
-    // font
-    QFont font;
-    font.setFamily(QString::fromUtf8("AmigaTopazTurkish"));
-    font.setPointSize(12);
 
     // Button
     /*
     AmigaButton aButton(&w,
-                    ":/pics/pics/normal.png",
-                    ":/pics/pics/hover.png",
-                    ":/pics/pics/press.png",
+                    ":/pics/normal.png",
+                    ":/pics/hover.png",
+                    ":/pics/press.png",
                     50, 150, "Deneme");
     aButton.setTextColor(QColor(255,0,255));
     aButton.setFont(font);
@@ -40,46 +35,37 @@ int main(int argc, char *argv[])
 
     // Standart Button
     AmigaStandartButton aSButton(&w, 120, 25, 20, 50, "Button");
-    aSButton.setFont(font);
 
     // LineEdit
     AmigaLineEdit aLineEdit(&w, 200, 25, 20, 80);
-    aLineEdit.setFont(font);
     aLineEdit.setText("text");
 
     // horizontal line
     AmigaHorizontalLine hl1(&w, 50, 20, 32);
     // Label
     AmigaLabel aLabel(&w, 190, 25, 70, 20, "This is horizontal line");
-    aLabel.setFont(font);
     AmigaLabel aLabel2(&w, 150, 25, 20, 140, "This is label.......");
-    aLabel2.setFont(font);
 
     AmigaHorizontalLine hl2(&w, 50, 260, 32);
 
     // Checkbox
     AmigaCheckBox aCheckBox(&w, 240, 25, 20, 110, "This is a checkbox");
-    aCheckBox.setFont(font);
 
     // horizontal slider
     AmigaHorizontalSlider aHorSlider(&w, 20, 170, 2, 8);
 
     // Combobox
     AmigaComboBox aCombobox(&w, 120, 25, 20, 200, QStringList{ "Birinci", "İkinci", "Üçüncü"});
-    aCombobox.setFont(font);
 
     // frame
     AmigaFrame aFrame(&w, 200, 100, 20, 230);
     AmigaLabel lFrame(&aFrame, 100, 25, 10, 10, "Frame Text");
-    lFrame.setFont(font);
 
     AmigaFrame aFrameCaro(&w, 200, 100, 20, 340, true);
     AmigaLabel lFrame2(&aFrameCaro, 140, 25, 10, 10, "Caro Frame Text");
-    lFrame2.setFont(font);
 
     // textedit
     AmigaTextEdit aTextEdit(&w, 400, 200, 280, 60);
-    aTextEdit.setFont(font);
     aTextEdit.setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
     "p, li { white-space: pre-wrap; }\n"
@@ -89,7 +75,7 @@ int main(int argc, char *argv[])
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Normal</p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\" margin-top:0px; m"
-                            "argin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This is a boing ball image: <img src=\":/pics/pics/boingball.png\" /></p>\n"
+                            "argin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This is a boing ball image: <img src=\":/pics/boingball.png\" /></p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0 1 2 3 4 5 6 7 8 9</p>\n"
@@ -100,7 +86,6 @@ int main(int argc, char *argv[])
 
     // listwidget
     AmigaListWidget aListWidget(&w, 200, 100, 280, 300);
-    aListWidget.setFont(font);
     new QListWidgetItem("Bir", &aListWidget);
     new QListWidgetItem("İki", &aListWidget);
     new QListWidgetItem("Üç", &aListWidget);
@@ -113,29 +98,33 @@ int main(int argc, char *argv[])
     // progressbar
     //AmigaProgressBar aProgBar(&w, 200, 20, 280, 420);
     AmigaProgressBar aProgBar(&w, 200, 20, 280, 420, 0, 50, true);
-    aProgBar.setFont(font);
     aProgBar.setValue(25);
 
     // spinbox
     AmigaSpinBox aSpinBox(&w, 120,25,500,420);
-    aSpinBox.setFont(font);
     aSpinBox.setMaximum(50);
     aSpinBox.setValue(16);
 
     // tabwidget
     AmigaTabWidget aTabWidget(&w, 500, 75, 120, 450);
-    aTabWidget.setFont(font);
     aTabWidget.addTab(new QWidget(), " Settings   ");
     aTabWidget.addTab(new QWidget(), " Options   ");
     aTabWidget.addTab(new QWidget(), " Help   ");
     aTabWidget.setCurrentIndex(1);
 
-
-
     w.setWindowTitle("Amiga Window Title - çöışüğÇÖİŞÜĞ");
     w.resize(800, 600);
     w.setMinimumSize(800,600);
+    //w.bringToAlwaysBottom();
     w.show();
+
+    AmigaWindow w1(nullptr,false,false,true,true,true,false), w2(nullptr, false, false, false, true);
+    w1.resize(320,240);
+    w1.setWindowTitle("About");
+    w2.resize(480,200);
+    w2.setWindowTitle("Window #2");
+    w1.show();
+    w2.show();
 
     return a.exec();
 }
