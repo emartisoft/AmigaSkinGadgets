@@ -135,7 +135,7 @@ void AmigaTitleBar::mouseMoveEvent(QMouseEvent *event)
 {
     if( event->buttons().testFlag(Qt::LeftButton) && mMoving)
     {
-        QPointF p = event->globalPosition();
+        QPointF p = event->globalPos();
         window()->move(p.toPoint() - mLastMousePosition);
     }
 }
