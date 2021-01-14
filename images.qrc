@@ -50,5 +50,9 @@
         <file>pics/left_edge_deactive.png</file>
         <file>pics/bottom_right_thin.png</file>
         <file>pics/bottom_right_thin_deactive.png</file>
+        <file>pics/wb_back.png</file>
+        <file>pics/bAot_down_deactive.png</file>
+        <file>pics/diskette.png</file>
+        <file>pics/systemfolder.png</file>
     </qresource>
 </RCC>

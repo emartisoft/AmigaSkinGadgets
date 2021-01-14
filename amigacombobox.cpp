@@ -24,7 +24,7 @@ AmigaComboBox::AmigaComboBox(QWidget *parent,
     setText(list[0]);
 
     setStyleSheet(QString::fromUtf8("QMenu {background-color: #ffffff; border: 1px solid black;}\n "
-                                    "QMenu::item {padding: 2px 25px 2px 20px; background-color: transparent; color: #000000;}\n "
+                                    "QMenu::item {padding: 2px 25px 2px 4px; background-color: transparent; color: #000000;}\n "
                                     "QMenu::item:selected {margin: 1px; border-color: #ffffff; background-color: #000000; color: #ffffff;}"));
 
     update();

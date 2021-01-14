@@ -23,6 +23,8 @@ SOURCES += \
     amigastandartbutton.cpp \
     amigatabwidget.cpp \
     amigatextedit.cpp \
+    amigaworkbench.cpp \
+    amigaworkbenchicon.cpp \
     main.cpp \
     amigabutton.cpp \
     amigatitlebar.cpp \
@@ -46,7 +48,9 @@ HEADERS += \
     amigatextedit.h \
     amigabutton.h \
     amigatitlebar.h \
-    amigawindow.h
+    amigawindow.h \
+    amigaworkbench.h \
+    amigaworkbenchicon.h
 
 FORMS +=
 

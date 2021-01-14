@@ -14,6 +14,8 @@
 #include "amigaprogressbar.h"
 #include "amigaspinbox.h"
 #include "amigatabwidget.h"
+#include "amigaworkbench.h"
+#include "amigaworkbenchicon.h"
 
 #include <QColor>
 
@@ -21,17 +23,6 @@ int main(int argc, char *argv[])
 {
     AmigaApplication a(argc, argv);
     AmigaWindow w;//(nullptr, false, false, false);
-
-    // Button
-    /*
-    AmigaButton aButton(&w,
-                    ":/pics/normal.png",
-                    ":/pics/hover.png",
-                    ":/pics/press.png",
-                    50, 150, "Deneme");
-    aButton.setTextColor(QColor(255,0,255));
-    aButton.setFont(font);
-    */
 
     // Standart Button
     AmigaStandartButton aSButton(&w, 120, 25, 20, 50, "Button");
@@ -118,6 +109,33 @@ int main(int argc, char *argv[])
     //w.bringToAlwaysBottom();
     w.show();
 
+    // workbench
+    AmigaWorkbench wb(nullptr, QStringList{"Workbench", "Window", "Icon", "Tools"});
+    QMenu *menuWorbench = new QMenu(&wb);
+    menuWorbench->addAction("✓Backdrop");
+    menuWorbench->addAction("About...");
+    menuWorbench->addSeparator();
+    menuWorbench->addAction("Reboot");
+    QAction *quitAction = new QAction("Quit");
+    QObject::connect(quitAction, SIGNAL(triggered()), &a, SLOT(quit()));
+    menuWorbench->addAction(quitAction);
+    wb.AddPopupMenu(menuWorbench, 0);
+
+    // RAM icon
+    AmigaWorkbenchIcon iconRam(nullptr, 20, 100, 128);
+    iconRam.setIcon(":/pics/diskette.png");
+    iconRam.setTitle("RAM");
+    iconRam.setCommand("c:/windows/write.exe");
+    wb.AddIcon(&iconRam);
+
+    // System icon
+    AmigaWorkbenchIcon sysIcon(nullptr, 20, 180, 128);
+    sysIcon.setIcon(":/pics/systemfolder.png");
+    sysIcon.setTitle("System OS 3.1");
+    sysIcon.setCommand("C:/windows/notepad.exe");
+    wb.AddIcon(&sysIcon);
+
+    // some windows
     AmigaWindow w1(nullptr,false,false,true,true,true,false), w2(nullptr, false, false, false, true);
     w1.resize(320,240);
     w1.setWindowTitle("About");
