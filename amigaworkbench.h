@@ -20,8 +20,8 @@ public:
     void AddIcon(AmigaWorkbenchIcon *awi);
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
-    bool event(QEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual bool event(QEvent *event);
 
 signals:
 

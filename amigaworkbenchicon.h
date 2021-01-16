@@ -6,12 +6,13 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QProcess>
+#include <QDateTime>
 
 class AmigaWorkbenchIcon : public QFrame
 {
     Q_OBJECT
 public:
-    AmigaWorkbenchIcon(QWidget *parent, int x, int y, int w, QString iconPath="", QString iconTitle="Unnamed");
+    AmigaWorkbenchIcon(QWidget *parent, int x, int y, int w, QString iconPath=":/pics/diskette.png", QString iconTitle="Unnamed");
     void setCommand(QString cmd);
     void setIcon(QString iconPath);
     void setTitle(QString iconTitle);
@@ -19,9 +20,9 @@ public:
     bool isPressed();
 
 protected:
-    void mousePressEvent(QMouseEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
-    void mouseDoubleClickEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mouseMoveEvent(QMouseEvent *event);
+    virtual void mouseDoubleClickEvent(QMouseEvent *event);
 
 private:
     QPoint offset;

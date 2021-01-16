@@ -53,8 +53,6 @@ void AmigaWorkbench::AddMenu()
         horizontalLayout->addWidget(menuButton[i]);
         arrayMenu[i] = new QMenu;
     }
-
-
 }
 
 void AmigaWorkbench::setAllIconToNormal()
@@ -70,7 +68,7 @@ void AmigaWorkbench::setAllIconToNormal()
 void AmigaWorkbench::menubarpressed()
 {
     QPushButton *button = (QPushButton*) sender();
-    qDebug() << button->text();
+    //qDebug() << button->text();
     int i = 0;
     while(i<m_MenuList.count())
     {
@@ -124,7 +122,7 @@ void AmigaWorkbench::AddMenuBar(QStringList menuList)
     centralwidget = new QWidget(this);
     frame = new QFrame(centralwidget);
     frame->setObjectName(QString::fromUtf8("frame"));
-    frame->setGeometry(QRect(48, 32, width()-2*48, 22));
+    frame->setGeometry(QRect(1, 1, width()-2*1, 22));
     frame->setMinimumSize(QSize(0, 22));
     frame->setMaximumSize(QSize(16777215, 22));
     frame->setStyleSheet(QString::fromUtf8("QFrame{\n"

@@ -65,14 +65,13 @@ int main(int argc, char *argv[])
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-style:italic;\">Italic</span></p>\n"
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Normal</p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-    "<p style=\" margin-top:0px; m"
-                            "argin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This is a boing ball image: <img src=\":/pics/boingball.png\" /></p>\n"
+    "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">This is a boing ball image: <img src=\":/pics/boingball.png\" /></p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0 1 2 3 4 5 6 7 8 9</p>\n"
     "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"www.aminet.net\"><span style=\" font-size:12pt; text-decoration: underline; color:#5078a0;\""
-                            ">www.aminet.net</span></a></p>\n"
+    ">www.aminet.net</span></a></p>\n"
     "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></span>End of Doc</p></body></html>", nullptr));
 
     // listwidget
@@ -120,6 +119,9 @@ int main(int argc, char *argv[])
     QObject::connect(quitAction, SIGNAL(triggered()), &a, SLOT(quit()));
     menuWorbench->addAction(quitAction);
     wb.AddPopupMenu(menuWorbench, 0);
+    wb.AddPopupMenu(menuWorbench, 1);
+    wb.AddPopupMenu(menuWorbench, 2);
+    wb.AddPopupMenu(menuWorbench, 3);
 
     // RAM icon
     AmigaWorkbenchIcon iconRam(nullptr, 20, 100, 128);
