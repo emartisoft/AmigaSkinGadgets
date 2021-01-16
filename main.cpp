@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
     w.resize(800, 600);
     w.setMinimumSize(800,600);
     //w.bringToAlwaysBottom();
+    w.move(120,100);
     w.show();
 
     // workbench
@@ -140,11 +141,14 @@ int main(int argc, char *argv[])
     // some windows
     AmigaWindow w1(nullptr,false,false,true,true,true,false), w2(nullptr, false, false, false, true);
     w1.resize(320,240);
+    w1.move(300,400);
     w1.setWindowTitle("About");
     w2.resize(480,200);
+    w2.move(400,600);
     w2.setWindowTitle("Window #2");
-    w1.show();
-    w2.show();
+    w1.showNormal();
+    w2.showNormal();
+
 
     return a.exec();
 }

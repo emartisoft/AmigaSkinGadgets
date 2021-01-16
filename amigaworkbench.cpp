@@ -4,18 +4,16 @@
 AmigaWorkbench::AmigaWorkbench(QWidget *parent, QStringList menuList) :
     QMainWindow(parent),
     m_MenuList(menuList)
-{
-    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
+{ 
     setStyleSheet(QString::fromUtf8("QMainWindow{background-color: rgb(153, 153, 153);}\n"
                                     "QMenu {background-color: #ffffff; border: 1px solid black;}\n "
                                     "QMenu::item {padding: 2px 16px 2px 4px; background-color: transparent; color: #000000;}\n "
                                     "QMenu::item:selected {margin: 1px; border-color: #ffffff; background-color: #000000; color: #ffffff;}"));
 
-    showFullScreen();
-    AddMenuBar(m_MenuList);
-
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &AmigaWorkbench::pressedToNormalForMenubar);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
+    showMaximized();
 }
 
 AmigaWorkbench::~AmigaWorkbench()
@@ -26,7 +24,7 @@ AmigaWorkbench::~AmigaWorkbench()
 void AmigaWorkbench::AddMenu()
 {
     QLayoutItem *item;
-    while((item = horizontalLayout->takeAt(0)) != 0) {
+    while((item = horizontalLayout->takeAt(0)) != nullptr) {
         if (item->widget()) {
             horizontalLayout->removeWidget(item->widget());
             delete item->widget();
@@ -90,6 +88,12 @@ void AmigaWorkbench::pressedToNormalForMenubar()
     }
 }
 
+void AmigaWorkbench::showEvent(QShowEvent *event)
+{
+    Q_UNUSED(event)
+    AddMenuBar(m_MenuList);
+}
+
 void AmigaWorkbench::AddPopupMenu(QMenu *menu, int index)
 {
     arrayMenu[index] = menu;
@@ -117,12 +121,13 @@ bool AmigaWorkbench::event(QEvent *event)
 
 void AmigaWorkbench::AddMenuBar(QStringList menuList)
 {
+    int screenWidth = QApplication::desktop()->screenGeometry().width();
     m_MenuList = menuList;
 
     centralwidget = new QWidget(this);
     frame = new QFrame(centralwidget);
     frame->setObjectName(QString::fromUtf8("frame"));
-    frame->setGeometry(QRect(1, 1, width()-2*1, 22));
+    frame->setGeometry(QRect(1, 1, screenWidth-2*1, 22));
     frame->setMinimumSize(QSize(0, 22));
     frame->setMaximumSize(QSize(16777215, 22));
     frame->setStyleSheet(QString::fromUtf8("QFrame{\n"

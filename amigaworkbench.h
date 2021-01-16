@@ -40,6 +40,10 @@ private:
 public slots:
     void menubarpressed();
     void pressedToNormalForMenubar();
+
+protected:
+    virtual void showEvent(QShowEvent *event);
+
 };
 
 #endif // AMIGAWORKBENCH_H
