@@ -5,7 +5,8 @@
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QMenu>
+#include <QScreen>
+
 #include "amigaworkbenchicon.h"
 
 class AmigaWorkbench : public QMainWindow

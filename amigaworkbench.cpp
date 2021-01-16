@@ -121,7 +121,7 @@ bool AmigaWorkbench::event(QEvent *event)
 
 void AmigaWorkbench::AddMenuBar(QStringList menuList)
 {
-    int screenWidth = QApplication::desktop()->screenGeometry().width();
+    int screenWidth =  QGuiApplication::primaryScreen()->geometry().width();
     m_MenuList = menuList;
 
     centralwidget = new QWidget(this);
