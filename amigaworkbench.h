@@ -8,10 +8,7 @@
 #include <QScreen>
 
 #include "amigaworkbenchicon.h"
-<<<<<<< HEAD
 #include "amigalabel.h"
-=======
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
 
 class AmigaWorkbench : public QMainWindow
 {
@@ -41,12 +38,9 @@ private:
     int activeMenuIndex;
     QWidget *centralwidget;
     void setAllIconToNormal();
-<<<<<<< HEAD
     AmigaLabel *info;
     void showInfo(bool visible=true);
     int freememory;
-=======
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
 
 public slots:
     void menubarpressed();

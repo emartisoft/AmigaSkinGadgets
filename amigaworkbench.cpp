@@ -31,12 +31,11 @@ void AmigaWorkbench::AddMenu()
         }
         delete item;
     }
-<<<<<<< HEAD
+
 
     info = new AmigaLabel(frame, 250,22,0,0, "Copyright © 2020-2021 Rasmigatari by emarti, Murat Özdemir. All rights reserved.");
     horizontalLayout->addWidget(info);
-=======
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
+
     int c = m_MenuList.count();
     menuButton = new QPushButton*[c];
     arrayMenu = new QMenu*[c];
@@ -51,10 +50,7 @@ void AmigaWorkbench::AddMenu()
         menuButton[i]->setMinimumSize(QSize(0, 20));
         menuButton[i]->setMaximumSize(QSize(16777215, 20));
         menuButton[i]->setText(QString("%1").arg(m_MenuList[i]));
-<<<<<<< HEAD
         menuButton[i]->setVisible(false);
-=======
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
 
         connect(menuButton[i], SIGNAL(pressed()), this, SLOT(menubarpressed()));
 
@@ -73,7 +69,6 @@ void AmigaWorkbench::setAllIconToNormal()
     }
 }
 
-<<<<<<< HEAD
 void AmigaWorkbench::showInfo(bool visible)
 {
     info->setVisible(visible);
@@ -85,11 +80,6 @@ void AmigaWorkbench::showInfo(bool visible)
 void AmigaWorkbench::menubarpressed()
 {
     QPushButton *button = static_cast<QPushButton*>(sender());
-=======
-void AmigaWorkbench::menubarpressed()
-{
-    QPushButton *button = (QPushButton*) sender();
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
     //qDebug() << button->text();
     int i = 0;
     while(i<m_MenuList.count())
@@ -101,10 +91,6 @@ void AmigaWorkbench::menubarpressed()
     activeMenuIndex = i;
     arrayMenu[i]->exec(mapToGlobal(QPoint(menuButton[i]->pos().x() + frame->pos().x(), menuButton[i]->pos().y() + frame->pos().y() + 20-2)));
     timer->start(250);
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
 }
 
 void AmigaWorkbench::pressedToNormalForMenubar()
@@ -134,7 +120,6 @@ void AmigaWorkbench::AddIcon(AmigaWorkbenchIcon *awi)
 
 void AmigaWorkbench::mousePressEvent(QMouseEvent *event)
 {
-<<<<<<< HEAD
     if(event->button() == Qt::RightButton)
     {
       showInfo(false);
@@ -169,10 +154,8 @@ void AmigaWorkbench::mousePressEvent(QMouseEvent *event)
         info->setText(QString("Rasmigatari Workbench    %L1 Kilobytes free mem").arg(freememory));
     else
         info->setText("Rasmigatari Workbench    Unknown Kilobytes free mem");
-=======
     Q_UNUSED(event)
     setAllIconToNormal();
->>>>>>> 7b92d63d726a4d77e069c24a598da51c044ab9ab
 }
 
 bool AmigaWorkbench::event(QEvent *event)
