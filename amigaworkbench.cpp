@@ -31,6 +31,9 @@ void AmigaWorkbench::AddMenu()
         }
         delete item;
     }
+
+    info = new AmigaLabel(frame, 250,22,0,0, "Copyright © 2020-2021 Rasmigatari by emarti, Murat Özdemir. All rights reserved.");
+    horizontalLayout->addWidget(info);
     int c = m_MenuList.count();
     menuButton = new QPushButton*[c];
     arrayMenu = new QMenu*[c];
@@ -45,6 +48,7 @@ void AmigaWorkbench::AddMenu()
         menuButton[i]->setMinimumSize(QSize(0, 20));
         menuButton[i]->setMaximumSize(QSize(16777215, 20));
         menuButton[i]->setText(QString("%1").arg(m_MenuList[i]));
+        menuButton[i]->setVisible(false);
 
         connect(menuButton[i], SIGNAL(pressed()), this, SLOT(menubarpressed()));
 
@@ -63,9 +67,17 @@ void AmigaWorkbench::setAllIconToNormal()
     }
 }
 
+void AmigaWorkbench::showInfo(bool visible)
+{
+    info->setVisible(visible);
+    for (int i=0; i<m_MenuList.count(); i++ ) {
+        menuButton[i]->setVisible(!visible);
+    }
+}
+
 void AmigaWorkbench::menubarpressed()
 {
-    QPushButton *button = (QPushButton*) sender();
+    QPushButton *button = static_cast<QPushButton*>(sender());
     //qDebug() << button->text();
     int i = 0;
     while(i<m_MenuList.count())
@@ -77,6 +89,7 @@ void AmigaWorkbench::menubarpressed()
     activeMenuIndex = i;
     arrayMenu[i]->exec(mapToGlobal(QPoint(menuButton[i]->pos().x() + frame->pos().x(), menuButton[i]->pos().y() + frame->pos().y() + 20-2)));
     timer->start(250);
+
 }
 
 void AmigaWorkbench::pressedToNormalForMenubar()
@@ -106,8 +119,40 @@ void AmigaWorkbench::AddIcon(AmigaWorkbenchIcon *awi)
 
 void AmigaWorkbench::mousePressEvent(QMouseEvent *event)
 {
-    Q_UNUSED(event)
-    setAllIconToNormal();
+    if(event->button() == Qt::RightButton)
+    {
+      showInfo(false);
+    }
+    else if(event->button() == Qt::LeftButton)
+    {
+        setAllIconToNormal();
+        showInfo();
+    }
+
+    bool ok = false;
+    // calculate free memory for RAM
+
+#ifndef Q_OS_WIN
+    QProcess aProcess;
+    QStringList aArguments = {};
+    aProcess.start("calculateFreeMem.sh", aArguments);
+    aProcess.waitForFinished();
+
+    QFile logFile;
+    logFile.setFileName("/root/memory.txt");
+    logFile.open(QIODevice::ReadOnly);
+    QTextStream log(&logFile);
+    QString currentLine = log.readLine();
+
+    freememory = currentLine.toInt(&ok, 10);
+    logFile.close();
+#endif
+
+    QLocale::setDefault(QLocale(QLocale::English, QLocale::UnitedStates));
+    if(ok)
+        info->setText(QString("Rasmigatari Workbench    %L1 Kilobytes free mem").arg(freememory));
+    else
+        info->setText("Rasmigatari Workbench    Unknown Kilobytes free mem");
 }
 
 bool AmigaWorkbench::event(QEvent *event)
@@ -121,7 +166,7 @@ bool AmigaWorkbench::event(QEvent *event)
 
 void AmigaWorkbench::AddMenuBar(QStringList menuList)
 {
-    int screenWidth = QApplication::desktop()->screenGeometry().width();
+    int screenWidth =  QGuiApplication::primaryScreen()->geometry().width();
     m_MenuList = menuList;
 
     centralwidget = new QWidget(this);

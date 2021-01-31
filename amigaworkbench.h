@@ -5,8 +5,10 @@
 #include <QFrame>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QMenu>
+#include <QScreen>
+
 #include "amigaworkbenchicon.h"
+#include "amigalabel.h"
 
 class AmigaWorkbench : public QMainWindow
 {
@@ -36,6 +38,9 @@ private:
     int activeMenuIndex;
     QWidget *centralwidget;
     void setAllIconToNormal();
+    AmigaLabel *info;
+    void showInfo(bool visible=true);
+    int freememory;
 
 public slots:
     void menubarpressed();
